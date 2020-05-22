@@ -126,7 +126,8 @@ public class FunctionInvocationClientTests extends ForkingClientServerIntegratio
 		Random random = new Random();
 		Address address = new Address("it", "doesn't", "matter");
 
-		LongStream.rangeClosed(1, 100).forEach((orderId) -> LongStream.rangeClosed(1, 3).forEach((customerId) -> {
+		LongStream.rangeClosed(1, 10).forEach((orderId) -> {
+			Long customerId = random.nextInt(3) + 1L;
 			Order order = new Order(orderId, customerId, address);
 			IntStream.rangeClosed(0, random.nextInt(3) + 1).forEach((lineItemCount) -> {
 				int quantity = random.nextInt(3) + 1;
@@ -134,8 +135,8 @@ public class FunctionInvocationClientTests extends ForkingClientServerIntegratio
 				order.add(new LineItem(productRepository.findById(productId).get(), quantity));
 			});
 			orderRepository.save(order);
-		}));
+		});
 
-		assertThat(orders.keySetOnServer().size()).isEqualTo(100);
+		assertThat(orders.keySetOnServer().size()).isEqualTo(10);
 	}
 }

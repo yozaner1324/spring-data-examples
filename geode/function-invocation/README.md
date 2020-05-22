@@ -11,7 +11,7 @@ The client is configured to connect to the deployed/started server on `localhost
 The example is broken up into multiple steps:
 1. Insert (Put) three Customer entries into the `Customers` region using the repositories `save` method.
 2. Insert (Put) three Product entries into the `Products` region using the repositories `save` method.
-3. Insert (Put) 100 Order entries into the `Orders` region using the repositories `save` method.
+3. Insert (Put) 10 Order entries into the `Orders` region using the repositories `save` method.
 
 Your output from the test `functionsExecuteCorrectly` should look similar to the following:
 
