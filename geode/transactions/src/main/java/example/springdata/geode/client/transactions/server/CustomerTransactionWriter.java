@@ -44,7 +44,7 @@ public class CustomerTransactionWriter implements TransactionWriter {
 		});
 
 		if (six_found.get()) {
-			throw new TransactionWriterException("Customer for Key: 6 is being changed. Failing transaction");
+//			throw new TransactionWriterException("Customer for Key: 6 is being changed. Failing transaction");
 		}
 	}
 }
